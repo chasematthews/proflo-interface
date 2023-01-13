@@ -60,12 +60,17 @@ table {
 
 .stream-info {
 	z-index: 1;
-	background-color: black;
+	background-color: rgb(255, 255, 255);
 	height: 40vh;
 	width: 25vh;
 	position: absolute;
 	top: 0px;
 	left: 0px;
+}
+
+.stream-tag {
+	background-color: red;
+	cursor: pointer;
 }
 
 .content-right {
@@ -83,4 +88,8 @@ iframe {
     height: 100%;
     width: 100%;
 	z-index: 0;
+}
+
+.table-cell {
+	border: 1px solid black;
 }
