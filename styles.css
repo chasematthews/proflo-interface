@@ -79,12 +79,13 @@ iframe {
 	z-index: 1;
 	background-color: rgb(255, 255, 255);
 	height: 40vh;
-	width: 25vh;
+	width: 35vh;
 	position: absolute;
 	display: flex;
 	flex-direction: column;
 	padding: 20px;
 	border: solid 1px black;
+	overflow: auto;
 }
 
 .streaminfo-title {
