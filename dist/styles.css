@@ -86,7 +86,6 @@ iframe {
 	border: solid 1px black;
 	overflow: auto;
 	resize: both;
-	cursor: move;
 }
 
 .streaminfo-title {
