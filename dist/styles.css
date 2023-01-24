@@ -1,55 +1,39 @@
 /* Removing all default CSS */
 
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
-}
-/* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
-footer, header, hgroup, menu, nav, section {
-	display: block;
-}
-body {
-	line-height: 1;
-}
-ol, ul {
-	list-style: none;
-}
-blockquote, q {
-	quotes: none;
-}
-blockquote:before, blockquote:after,
-q:before, q:after {
-	content: '';
-	content: none;
-}
-table {
-	border-collapse: collapse;
-	border-spacing: 0;
+* {
+	margin: 0px;
+	padding: 0px;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
 }
 
 /* Custom CSS*/
 
+:root {
+    --light-blue: rgb(231, 246, 248);
+    --blue-green: rgb(164, 204, 211);
+    --dark-blue: rgb(47, 57, 88);
+    --white: rgb(243, 242, 242);
+    --shadow: rgba(2, 38, 87, 0.253) 0px 1px 4px;
+    --spacing-xs: 5px;
+    --spacing-sm: 10px;
+    --spacing-md: 15px;
+    --spacing-lg: 20px;
+    --spacing-xl: 40px;
+    --spacing-xxl: 80px;
+    --border-radius: 8px;
+}
+
+h1 {
+    margin-bottom: var(--spacing-md);
+    margin-top: var(--spacing-md);
+}
+
 .header {
     width: 100vw;
     height: 10vh;
-    background-color: green;
+    background-color: var(--blue-green);
+    box-shadow: var(--shadow);
 }
 
 .content {
@@ -57,13 +41,27 @@ table {
 }
 
 .content-left {
-    width: 20vw;
+    width: 15vw;
     height: 90vh;
-    background-color: red;
+    background-color: var(--light-blue);
+    padding: var(--spacing-lg);
+}
+
+.navigation-button {
+   background-color: var(--light-blue);
+   border: none;
+   font-size: medium;
+   padding: var(--spacing-sm);
+   border-radius: var(--border-radius);
+}
+
+.navigation-button:hover {
+    cursor: pointer;
+    filter: brightness(90%)
 }
 
 .content-right {
-    width: 80vw;
+    width: 85vw;
     height: 90vh;
     overflow: hidden;
 	position: relative;
@@ -77,21 +75,70 @@ iframe {
 
 .stream-info {
 	z-index: 1;
-	background-color: rgb(255, 255, 255);
-	height: 40vh;
-	width: 35vh;
+	background-color: var(--light-blue);
 	position: absolute;
 	flex-direction: column;
-	padding: 20px;
-	border: solid 1px black;
+	padding: var(--spacing-md);
+	border: solid 2px var(--dark-blue);
 	overflow: auto;
 	resize: both;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
 }
 
 .streaminfo-title {
-	margin-bottom: 20px;
+	margin-bottom: var(--spacing-md);
 }
 
 .table-cell {
-	border: 1px solid black;
+	border: 0.5px solid var(--dark-blue);
+    font-size: 12px;
+    padding: 1px;
+}
+
+.stream-table {
+    border-spacing: 0px;
+}
+
+#add-project-wrapper {
+    display: none;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    z-index: 1;
+    background-color: rgba(0, 0, 0, 0.4);
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: var(--blue-green);
+    box-shadow: var(--shadow);
+    padding: var(--spacing-xl);
+    border-radius: var(--border-radius);
+}
+
+#add-project-form {
+    display: grid;
+    gap: var(--spacing-lg);
+}
+
+input, .buttons-wrapper > button {
+    border: 2px solid var(--white);
+    padding: var(--spacing-xs);
+    border-radius: var(--border-radius);
+    font-size: 16px;
+}
+
+.buttons-wrapper {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-md);
+}
+
+#project-submit:hover, #project-stop:hover {
+    filter: brightness(90%);
+    cursor: pointer;
 }

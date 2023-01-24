@@ -4,13 +4,16 @@ import stream_data from './PFD-MEB-v5.csv';
 //Set time out so that all of this JS happens once the drawing HTML file is put onto the webpage
 setTimeout(() => getElements(), 100);
 
-//Gather assets from the iFrame - all div blocks inlcluding those containing the stream numbers.
+//Gather assets from the page.
 function getElements() {
   const identifiers = document.querySelector("#drawing-frame").contentWindow.document.querySelectorAll("div");
   const rightContent = document.querySelector(".content-right");
+  const addProjectBtn = document.getElementById("add-project-btn");
+  const form = document.getElementById("add-project-form");
 
-  //Call the add SN listeners function
-  addSNListeners(identifiers, rightContent)
+  //Call the event listener functions
+  addSNListeners(identifiers, rightContent);
+  addPageListeners(addProjectBtn, form);
 }
 
 //Add Event Listeners on the stream numbers on the drawing. 
@@ -98,4 +101,33 @@ function hideInfo(identifier, streamDiv) {
 
   //Change the display of the stream data from "flex" to "none" which will make the table invisible on the page.
   streamDiv.style.display = "none";
+}
+
+function addPageListeners(addProjectBtn, form) {
+  const modal = document.getElementById('add-project-wrapper');
+  const cancelBtn = document.getElementById('project-stop');
+  addProjectBtn.addEventListener('click', () => {
+    modal.style.display = 'flex';
+  });
+  form.addEventListener('submit', (event) => {
+    event.preventDefault()
+    const formData = new FormData(form);
+    const data = Object.fromEntries(formData);
+    form.reset();
+    createProject(data, addProjectBtn);
+    modal.style.display = 'none';
+  });
+  cancelBtn.addEventListener('click', (event) => {
+    event.preventDefault();
+    form.reset();
+    modal.style.display = 'none';
+  })
+};
+
+function createProject(data, addProjectBtn) {
+  const newProject = document.createElement('div');
+  newProject.classList.add('navigation-button');
+  newProject.textContent = data.name;
+  const leftContent = document.getElementById("content-left");
+  leftContent.insertBefore(newProject, addProjectBtn);
 }

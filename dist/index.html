@@ -6,14 +6,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ProFlo</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
 </head>
 <body>
     <script src="bundle.js"></script>
     <div class="header"></div>
     <div class="content">
-        <div class="content-left"></div>
+        <div class="content-left" id="content-left">
+            <div class="navigation-button">Comments</div>
+            <h1>Projects</h1>
+            <div class="navigation-button" id="add-project-btn">+ Add Project</div>
+        </div>
         <div class="content-right">
             <iframe src="../src/drawing.html" id="drawing-frame"></iframe>
+        </div>
+    </div>
+    <div class="modal" id="add-project-wrapper">
+        <div class="modal-content">
+            <form id="add-project-form">
+                <h3>Add new project</h3>
+                <div class="form-input">
+                    <input type="text" name="name" id="name" placeholder="Project Name" required>
+                </div>
+                <div class="form-input">
+                    <input type="text" name="client" id="client" placeholder="Client" required>
+                </div>
+                <div class="form-input">
+                    <input type="text" name="text" id="location" placeholder="Location">
+                </div>
+                <div class="form-input">
+                    <input type="text" name="stage" id="stage" placeholder="Project Stage">
+                </div>
+                <div class="buttons-wrapper">
+                    <button type="submit" id="project-submit">Submit</button>
+                    <button id="project-stop">Cancel</button>
+                </div>
+            </form>
         </div>
     </div>
 </body>
