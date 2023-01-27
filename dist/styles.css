@@ -176,3 +176,12 @@ input, .buttons-wrapper > button {
     padding: var(--spacing-xs);
     font-size: small;
  }
+
+ .comments-table {
+    display: grid;
+    grid-template-columns: 3fr 1fr 1fr 1fr;
+ }
+
+ .comments-table-heading {
+    font-weight: 500;
+ }

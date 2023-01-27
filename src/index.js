@@ -155,6 +155,10 @@ function addPageListeners(addProjectBtn) {
   const projectCancelBtn = document.getElementById('project-stop');
   const commentCancelBtn = document.getElementById('comment-stop');
   const commentModal = document.getElementById('add-comment-wrapper');
+  const commentRegisterBtn = document.getElementById('comment-register-button');
+  const projectBtn = document.getElementById('project-button');
+  const commentRegisterWrapper = document.getElementById('comments-register-wrapper');
+  const iFrameWrapper = document.getElementById('drawing-frame');
   //EL for add project button
   addProjectBtn.addEventListener('click', () => {
     projectModal.style.display = 'flex';
@@ -181,12 +185,23 @@ function addPageListeners(addProjectBtn) {
     const commentData = Object.fromEntries(formData);
     commentForm.reset();
     document.getElementById('add-comment-wrapper').style.display = 'none';
+    addCommentBtn(commentData);
   })
   //EL for cancel new comment button
   commentCancelBtn.addEventListener('click', (event) => {
     event.preventDefault();
     projectForm.reset();
     commentModal.style.display = 'none';
+  })
+  //EL for comments register button
+  commentRegisterBtn.addEventListener('click', () => {
+    commentRegisterWrapper.style.display = 'block';
+    iFrameWrapper.style.display = 'none';
+  })
+  //EL for project button
+  projectBtn.addEventListener('click', () => {
+    commentRegisterWrapper.style.display = 'none';
+    iFrameWrapper.style.display = 'block';
   })
 };
 
@@ -251,3 +266,4 @@ function dragElement(streamDiv, streamInfoHeader) {
     document.onmousemove = null;
   }
 }
+
