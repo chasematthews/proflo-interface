@@ -46,5 +46,30 @@
             </form>
         </div>
     </div>
+    <div class="modal" id="add-comment-wrapper">
+        <div class="modal-content">
+            <form id="add-comment-form">
+                <h3>Add new comment</h3>
+                <textarea name="comment" id="comment" rows="rows" cols="60">Add a comment here</textarea>
+                <div class="form-input">
+                    <input type="text" name="asigned" id="assigned" placeholder="Assigned to" required>
+                </div>
+                <div class="form-input">
+                    <input type="date" name="due-date" id="due-date" placeholder="Due Date">
+                </div>
+                <select name="severity" id="severity">
+                    <option value="very-high">Very High</option>
+                    <option value="high">High</option>
+                    <option value="medium">Medium</option>
+                    <option value="low">Low</option>
+                    <option value="very-low">Very Low</option>
+                </select>
+                <div class="buttons-wrapper">
+                    <button type="submit" id="comment-submit">Submit</button>
+                    <button id="comment-stop">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
 </body>
 </html>

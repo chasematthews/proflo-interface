@@ -78,7 +78,6 @@ iframe {
 	background-color: var(--light-blue);
 	position: absolute;
 	flex-direction: column;
-	padding: var(--spacing-md);
 	border: solid 2px var(--dark-blue);
 	overflow: auto;
 	resize: both;
@@ -87,7 +86,7 @@ iframe {
 }
 
 .streaminfo-title {
-	margin-bottom: var(--spacing-md);
+    padding: var(--spacing-md);
 }
 
 .table-cell {
@@ -98,9 +97,12 @@ iframe {
 
 .stream-table {
     border-spacing: 0px;
+    padding-right: var(--spacing-md);
+    padding-left: var(--spacing-md);
+    margin-bottom: 15px;
 }
 
-#add-project-wrapper {
+#add-project-wrapper, #add-comment-wrapper {
     display: none;
     position: fixed;
     top: 0px;
@@ -120,7 +122,7 @@ iframe {
     border-radius: var(--border-radius);
 }
 
-#add-project-form {
+#add-project-form, #add-comment-form {
     display: grid;
     gap: var(--spacing-lg);
 }
@@ -138,7 +140,39 @@ input, .buttons-wrapper > button {
     gap: var(--spacing-md);
 }
 
-#project-submit:hover, #project-stop:hover {
+#project-submit:hover, #project-stop:hover, #comment-submit:hover, #comment-stop:hover {
     filter: brightness(90%);
     cursor: pointer;
 }
+
+.add-comment-button {
+    background-color: var(--light-blue);
+    border: none;
+    font-size: medium;
+    padding-left: var(--spacing-md);
+    padding-right: var(--spacing-md);
+    padding-bottom: var(--spacing-md);
+    border-radius: var(--border-radius);
+    font-size: medium;
+ }
+ 
+ .add-comment-button:hover {
+     cursor: pointer;
+     filter: brightness(90%)
+ }
+
+ .stream-info-header {
+    width: 100%;
+    background-color: var(--blue-green);
+    box-shadow: var(--shadow);
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    padding: var(--spacing-xs) var(--spacing-md);
+ }
+
+ .stream-info-header-exit {
+    background-color: var(--blue-green);
+    padding: var(--spacing-xs);
+    font-size: small;
+ }
